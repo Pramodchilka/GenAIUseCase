@@ -10,7 +10,7 @@ folder_path = "Media_Files"
 categories = ["educational", "entertainment", "sports", "tutorial", "news", "documentary"]
 
 report_lines = []
-has_failure = False  #  FFlag to decide final build status
+has_failure = False  #  Flagg to decide final build status
 
 # Start the report file
 with open("validation_report.txt", "w") as report:
