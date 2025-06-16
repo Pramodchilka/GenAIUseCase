@@ -2,13 +2,13 @@ name: Content Validator
 
 on:
   push:
-    branches: [master]
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   validate:
     runs-on: ubuntu-latest
-    outputs:
-      status: ${{ steps.validate-content.outcome }}
 
     steps:
       - name: Checkout code
@@ -24,15 +24,16 @@ jobs:
           pip install openai-whisper transformers pandas gspread oauth2client PyPDF2 torch torchvision torchaudio Pillow
 
       - name: Run content validation
-        id: validate-content
         run: python validate_content.py
 
-      - name: Print validation report
-        if: always()
+      - name: Print validation report to console
         run: cat validation_report.txt
 
+      - name: 🧪 List files
+        run: ls -la
+
       - name: Upload validation report
-        if: always()
+        if: always()  # Run this step even if validation fails
         uses: actions/upload-artifact@v4
         with:
           name: validation-report
