@@ -1,1 +1,39 @@
+name: Content Validator
 
+on:
+  push:
+    branches: [master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    outputs:
+      status: ${{ steps.validate-content.outcome }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install openai-whisper transformers pandas gspread oauth2client PyPDF2 torch torchvision torchaudio Pillow
+
+      - name: Run content validation
+        id: validate-content
+        run: python validate_content.py
+
+      - name: Print validation report
+        if: always()
+        run: cat validation_report.txt
+
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report
+          path: ./validation_report.txt
