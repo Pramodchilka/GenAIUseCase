@@ -1,0 +1,64 @@
+!pip install openai-whisper transformers pandas gspread oauth2client --quiet
+import os
+import mimetypes
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Example path where your files are located
+folder_path = "/content/drive/My Drive/AI_Videos"
+
+# Supported categories
+categories = ["educational", "entertainment", "sports", "tutorial", "news", "documentary"]
+
+# Check each file
+for file_name in os.listdir(folder_path):
+    full_path = os.path.join(folder_path, file_name)
+    file_type, _ = mimetypes.guess_type(full_path)
+
+    print(f"\n🔍 Processing: {file_name}")
+    
+    # VIDEO or AUDIO
+    if file_name.endswith(('.mp4', '.mov', '.mkv', '.mp3', '.wav')):
+        from whisper import load_model
+        model = load_model("base")
+        result = model.transcribe(full_path)
+        transcript = result["text"]
+
+        # classify transcript
+        from transformers import pipeline
+        classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+        result = classifier(transcript, candidate_labels=categories)
+        print("📼 Type: Video/Audio\n", result)
+
+    # IMAGE
+    elif file_name.endswith(('.jpg', '.jpeg', '.png', '.bmp')):
+        from transformers import CLIPProcessor, CLIPModel
+        from PIL import Image
+        model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+        processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+        image = Image.open(full_path)
+        inputs = processor(text=categories, images=image, return_tensors="pt", padding=True)
+        outputs = model(**inputs)
+        probs = outputs.logits_per_image.softmax(dim=1)
+        for label, score in zip(categories, probs[0]):
+            print(f"{label}: {score:.2f}")
+
+        # Get top category
+        top_label = categories[probs.argmax()]
+        print("Predicted Category:", top_label)    
+
+    # PDF
+    elif file_name.endswith('.pdf'):
+        from PyPDF2 import PdfReader
+        reader = PdfReader(full_path)
+        text = ""
+        for page in reader.pages:
+            text += page.extract_text()
+        
+        # classify text
+        classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+        result = classifier(text, candidate_labels=categories)
+        print("📄 Type: PDF\n", result)
+
+    else:
+        print("⚠️ Unsupported file type. Skipping.")
