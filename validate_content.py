@@ -6,7 +6,7 @@ from PyPDF2 import PdfReader
 from PyPDF2.errors import PdfReadError
 
 THRESHOLD = 0.8
-folder_path = "AI_Videos"
+folder_path = "Media_Files"
 categories = ["educational", "entertainment", "sports", "tutorial", "news", "documentary"]
 
 report_lines = []
