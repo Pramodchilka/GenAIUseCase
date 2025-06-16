@@ -75,7 +75,7 @@ with open("validation_report.txt", "w") as report:
             report.write(f"Confidence: {top_score * 100:.0f}%\n")
 
             if top_score < THRESHOLD:
-                report.write(f" Validation failed: Confidence Score is below threshold ({THRESHOLD * 100:.0f})\n\n")
+                report.write(f" Validation failed: Confidence  Score is below threshold ({THRESHOLD * 100:.0f})\n\n")
                 has_failure = True
             else:
                 report.write(" Validation passed.\n\n")
