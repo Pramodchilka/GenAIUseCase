@@ -27,7 +27,7 @@ jobs:
       - name: Print validation report to console
         run: cat validation_report.txt
 
-      - name: 🧪 List files
+      - name: List files
         run: ls -la
 
       - name: Upload validation report
