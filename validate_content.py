@@ -5,7 +5,7 @@ from PIL import Image, UnidentifiedImageError
 from PyPDF2 import PdfReader
 from PyPDF2.errors import PdfReadError
 
-THRESHOLD = 0.8
+THRESHOLD = 0.9
 folder_path = "Media_Files"
 categories = ["educational", "entertainment", "sports", "tutorial", "news", "documentary"]
 
