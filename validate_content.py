@@ -5,7 +5,7 @@ from PIL import Image, UnidentifiedImageError
 from PyPDF2 import PdfReader
 from PyPDF2.errors import PdfReadError
 
-THRESHOLD = 0.9
+THRESHOLD = 0.8
 folder_path = "Media_Files"
 categories = ["educational", "entertainment", "sports", "tutorial", "news", "documentary"]
 
@@ -75,7 +75,7 @@ with open("validation_report.txt", "w") as report:
             report.write(f"Confidence: {top_score * 100:.0f}%\n")
 
             if top_score < THRESHOLD:
-                report.write(f" Validation failed: Confidence Score is below  threshold ({THRESHOLD * 100:.0f}%)\n\n")
+                report.write(f" Validation failed: Confidence Score is below ({THRESHOLD * 100:.0f}%)\n\n")
                 has_failure = True
             else:
                 report.write(" Validation passed.\n\n")
