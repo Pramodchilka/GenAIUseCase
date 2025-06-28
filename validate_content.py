@@ -19,6 +19,10 @@ BUCKET_NAME = "cicd-validation-media"
 PREFIX = "Valid_Files/"  # Example: 'AI_Videos/' or '' if root
 
 # ======================
+# ☁️ Connect to S3
+# ======================
+s3 = boto3.client("s3")
+# ======================
 # 🚀 Start Processing
 # ======================
 print("📦 Fetching files from S3...")
@@ -26,7 +30,7 @@ print("📦 Fetching files from S3...")
 response = s3.list_objects_v2(Bucket=BUCKET_NAME, Prefix=PREFIX)
 
 if "Contents" in response:
-    print("⚠️ No files found.")
+    print("⚠️ files found.")
 
 THRESHOLD = 0.8
 folder_path = "Media_Files"
