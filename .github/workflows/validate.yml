@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install openai-whisper transformers pandas gspread oauth2client PyPDF2 torch torchvision torchaudio Pillow
+          pip install openai-whisper transformers pandas gspread oauth2client PyPDF2 torch torchvision torchaudio Pillow boto3
 
       - name: Run content validation
         run: python validate_content.py
