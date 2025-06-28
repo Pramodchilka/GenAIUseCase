@@ -1,4 +1,5 @@
 import os
+import boto3
 import mimetypes
 from transformers import pipeline
 from PIL import Image, UnidentifiedImageError
