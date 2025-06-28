@@ -5,6 +5,29 @@ from PIL import Image, UnidentifiedImageError
 from PyPDF2 import PdfReader
 from PyPDF2.errors import PdfReadError
 
+# ======================
+#  AWS CREDENTIALS SETUP
+# ======================
+os.environ['AWS_ACCESS_KEY_ID'] = 'ASIASRGASLYJ5VAX6WCT'
+os.environ['AWS_SECRET_ACCESS_KEY'] = '4o2hypGoTapAKzfTJ/9bJlOjnd4/l4BJvYzzMmlp'
+# os.environ['AWS_SESSION_TOKEN'] = 'YOUR_SESSION_TOKEN'  # Uncomment if using temporary creds
+
+# ======================
+# 📂 S3 Configuration
+# ======================
+BUCKET_NAME = "cicd-validation-media"
+PREFIX = "Valid_Files/"  # Example: 'AI_Videos/' or '' if root
+
+# ======================
+# 🚀 Start Processing
+# ======================
+print("📦 Fetching files from S3...")
+
+response = s3.list_objects_v2(Bucket=BUCKET_NAME, Prefix=PREFIX)
+
+if "Contents" in response:
+    print("⚠️ No files found.")
+
 THRESHOLD = 0.8
 folder_path = "Media_Files"
 categories = ["educational", "entertainment", "sports", "tutorial", "news", "documentary"]
