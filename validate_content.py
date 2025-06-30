@@ -14,7 +14,7 @@ s3 = boto3.client(
     's3',
     aws_access_key_id='ASIASRGASLYJVJTIFAEK',
     aws_secret_access_key='9lnWMadJe4zoZo5t24MqahbbaLV+y5bz+ALoOKQc',
-    aws_session_token='IQoJb3JpZ2luX2VjEM3//////////wEaCmFwLXNvdXRoLTEiRzBFAiAFUEki4ADIdFJzXIBSwCV+DYn5amURqIONZU0G7e8pbgIhALzOty7njyx9xU/qP3XmeWFsHkmgfO8guI6GtmWhkI46KrcDCMb//////////wEQABoMMTc0MzUwMDMyNDAzIgxv3oFicjGBexMuhG4qiwM9...'
+    aws_session_token='IQoJb3JpZ2luX2VjEM3//////////wEaCmFwLXNvdXRoLTEiRzBFAiAFUEki4ADIdFJzXIBSwCV+DYn5amURqIONZU0G7e8pbgIhALzOty7njyx9xU/qP3XmeWFsHkmgfO8guI6GtmWhkI46KrcDCMb//////////wEQABoMMTc0MzUwMDMyNDAzIgxv3oFicjGBexMuhG4qiwM9//2lbtmghjuxsi1S8oaNIeLCKS2xV9mKav6ALbl6YT912B84h/k8fja5GD382K66tQfEVoTLQLd6KlXmmNKbFTWC0PZdE+FT3n7jK7TGHJJP0JayqLUglp5LQxMK7n7v6IlwxVxZBa8wEnqTTX7a/K/TB6jJztlQSD+9/MoA20Wy7lIOKQzvMEvmNKMtsrEqid76QdoZLfqlXp9BOOS66wccuRS1scTrDo8M8w0kglJpuG7RZwQUrP1ySrj0xdLY/BuGG39EAyX8g6PRDnm6ilK0F2SnXvISG4gihx7CW0gBUyVkGUkKSHPlVghskxoFj5PyecEpe8+lp2wmdMKRCw69ZxhyukzoqhQqDYlKW+DJC1+WnC/6KYH+auQOnnSObLT8qyyvrLkk8w6/KpLjOrK6GIAA8koTtQWvqAg8ZdcxjBSVe6IANHx6VsyNG/0lf+QGb8tCW/FCW2Tc0WTJjyaSqGBfj71nRo8adYfW/t0SbtTIo+t2TybRxKuv2+KikQTPA7dTl02q6TCU/IvDBjqmAe9i569yHMhBtRsRtzYAWm+FkEOn8apmivhBcXop+Gh/YcDRB1Ca3vr7sofuVr4U/aKUh9WStW6nJSufMkJYMO1HHzKFvotJ3KB6VSWjtOotElUHdc9rUgcCE6EBQIlSlkCuARxlQZNTmaKb5lFj/qcfv4T0KwCI2J3wB92NdwiyGGpqL2Qm9XDg3e1gK2h0FqLRoBozlKZ71EsaAKPVaYpgxsW43aE='
 )
 
 # ======================
