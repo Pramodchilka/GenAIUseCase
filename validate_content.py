@@ -18,11 +18,11 @@ s3 = boto3.client(
 )
 
 # ======================
-# ☁️ S3 Configuration
+# S3 Configuration
 # ======================
 BUCKET_NAME = "cicd-validation-media"
 PREFIX = "Valid_Files/"
-THRESHOLD = 0.5
+THRESHOLD = 0.6
 categories = ["educational", "entertainment", "sports", "tutorial", "news", "documentary"]
 report_lines = []
 has_failure = False
@@ -41,13 +41,13 @@ classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnl
 with open("validation_report.txt", "w") as report:
     report.write(" Validation Report\n")
 
-    print("📦 Fetching files from S3...")
+    print("Fetching files from S3...")
     response = s3.list_objects_v2(Bucket=BUCKET_NAME, Prefix=PREFIX)
 
     if "Contents" not in response:
-        print("❌ No files found.")
+        print("No files found.")
     else:
-        print(f"⚠️ {len(response['Contents'])} files found.")
+        print(f"{len(response['Contents'])} files found.")
 
         for obj in response["Contents"]:
             key = obj["Key"]
@@ -121,7 +121,7 @@ with open("validation_report.txt", "w") as report:
                 report.write(f" Error in processing file: {e}\n\n")
                 has_failure = True
 
-print("✅ Validation completed. Report saved as validation_report.txt")
+print("Validation completed. Report saved as validation_report.txt")
 
 # Ensure GitHub fails the job if any file failed
 if has_failure:
