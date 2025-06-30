@@ -12,9 +12,9 @@ from PyPDF2.errors import PdfReadError
 # ======================
 s3 = boto3.client(
     's3',
-    aws_access_key_id='ASIASRGASLYJWJHFOJ7I',
-    aws_secret_access_key='ltdcXEtRIvQtl2GFKsqtAUfbVDkxKEzSWMRDb+uQ',
-    aws_session_token='IQoJb3JpZ2luX2VjEM7//////////wEaCmFwLXNvdXRoLTEiSDBGAiEAm8Fr9dsuqoHukgWSLFoGHs5YKjOaXYLCthrqpNy3gxkCIQDXbCTlSOjSgDGEJL7DsJr56uT8GI5Z6NUlxiy/agZGqSq3AwjI//////////8BEAAaDDE3NDM1MDAzMjQwMyIMDExo/kbYFStRcE+2KosDfHftbvsmwspRh5HsFE3o1tS/wqbBr85fp25WZwNP2Q/KX1BUQKmkSeref+AYLxmdlmtEsbF+Xd3cL2VCsmWgS6uHRiDgT4+aujEASLZodbOP56Y0Jeon77TxWCAJ3PjqGyhCiO645cT82zIa21TFmf27UwOz72sOJ7tyhCER+6FVEOhdAI1m6F7OffL5r9bN2nbxdVwVTLa6Nphr3mHExMtnQekMrKq2uwfv2y689MDBnfrnj6Tarl1upp+0XRRbhNA4vAEyXhyPV0R3Ejw9LnYxYnn+v39KnnkNTDIB4zC/65scTZB9mo3m101jfpama5exprwx1QELPlcFLiIyYBFyvPogY88o36QMsWXh1fYxZr/4lu/fkWSrHpqVQkAsJOWyReZpMKWenpBKgZtFRSDA2cAuBA4OoWscJ3RKokQAE9wZo+jcG7kt/HDLWp+UmLfKn+8Hpv6v48VE8TBPSep5qSROkM5kUOCDTu7jVSMae86HdIZ1L9d3yAyfPdOJKlMeqEeWiNb2JywwzZ+MwwY6pQFrs6eFp+s3yZmDlij+mAPbWAInF+7OTKa6f3pDRlK93c86g1Uzl1edHQerRK5WolUWvRW6aT1JZQE6Wrm6ou6kB20qLcuYQviYMXtCGGhPBEycj38jCNAZNNgKPqsOeCJddG5ARI+x2f2UH3QtOVFIgjUm7mREigikbwNR4Y0U5uZOQtJh3ZC1ZCz5IbXVcqyVGy6S8BNceoEJPTfU7YgmO158dT0='
+    aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"],
+    aws_secret_access_key=os.environ["AWS_SECRET_ACCESS_KEY"],
+    aws_session_token=os.environ["AWS_SESSION_TOKEN"]
 )
 
 # ======================
