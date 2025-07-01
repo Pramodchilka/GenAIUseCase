@@ -7,9 +7,8 @@ from PIL import Image, UnidentifiedImageError
 from PyPDF2 import PdfReader
 from PyPDF2.errors import PdfReadError
 
-# ======================
+
 #  AWS Temporary Credentials Setup
-# ======================
 s3 = boto3.client(
     's3',
     aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"],
@@ -17,9 +16,8 @@ s3 = boto3.client(
     aws_session_token=os.environ["AWS_SESSION_TOKEN"]
 )
 
-# ======================
+
 # S3 Configuration
-# ======================
 BUCKET_NAME = "cicd-validation-media"
 PREFIX = "Valid_Files/"
 THRESHOLD = 0.8
