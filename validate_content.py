@@ -71,7 +71,7 @@ with open("validation_report.txt", "w") as report:
                     top_label = result['labels'][0]
                     top_score = result['scores'][0]
 
-                elif filename.endswith(('.jpg', '.jpeg', '.png', '.bmp')):
+                elif filename.endswith(('.jpg', '.jpeg', '.png', '.bmp', '.webp')):
                     try:
                         image = Image.open(BytesIO(file_data))
                         image.verify()
