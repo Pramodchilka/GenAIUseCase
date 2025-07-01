@@ -19,7 +19,8 @@ s3 = boto3.client(
 
 # S3 Configuration
 BUCKET_NAME = "cicd-validation-media"
-PREFIX = "Valid_Files/"
+# PREFIX = "Valid_Files/"
+PREFIX = "Error_Files/"
 THRESHOLD = 0.8
 categories = ["educational", "entertainment", "sports", "news", "documentary"]
 report_lines = []
