@@ -26,6 +26,9 @@ jobs:
         run: |
           pip install openai-whisper transformers pandas gspread oauth2client PyPDF2 torch torchvision torchaudio Pillow boto3
 
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+        
       - name: Run content validation
         run: python validate_content.py
 
