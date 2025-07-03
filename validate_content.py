@@ -28,6 +28,7 @@ PREFIX = "Valid_Files/"
 THRESHOLD = 0.8
 has_failure = False
 
+
 def extract_frame(video_path, frame_path="frame.jpg"):
     subprocess.run([
         "ffmpeg", "-i", video_path, "-ss", "00:00:01.000", "-vframes", "1", frame_path,
